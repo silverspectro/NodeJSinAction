@@ -1,0 +1,22 @@
+{
+  "name": "NodeJSinAction",
+  "version": "1.0.0",
+  "description": "multiple node utils",
+  "main": "clitask.js",
+  "scripts": {
+    "test": "node clitask list"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/silverspectro/NodeJSinAction.git"
+  },
+  "author": "Ciro DE CARO",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/silverspectro/NodeJSinAction/issues"
+  },
+  "homepage": "https://github.com/silverspectro/NodeJSinAction",
+  "dependencies": {
+    "mongodb": "^1.4.31"
+  }
+}
