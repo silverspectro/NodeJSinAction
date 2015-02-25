@@ -304,3 +304,32 @@ listening form API on  http://localhost:27017 on Wed Feb 25 2015 13:47:00 GMT+01
 listening form API on  http://localhost:27017 on Wed Feb 25 2015 13:47:44 GMT+0100 (CET)
 ::ffff:127.0.0.1 - - [25/Feb/2015:12:47:47 +0000] "GET / HTTP/1.1" 200 - "-" "curl/7.40.0"
 ::ffff:127.0.0.1 - - [25/Feb/2015:12:47:53 +0000] "GET /2 HTTP/1.1" 200 - "-" "curl/7.40.0"
+listening form API on  http://localhost:27017 on Wed Feb 25 2015 14:10:40 GMT+0100 (CET)
+listening form API on  http://localhost:27017 on Wed Feb 25 2015 14:11:24 GMT+0100 (CET)
+listening form API on  http://localhost:27017 on Wed Feb 25 2015 14:11:54 GMT+0100 (CET)
+listening form API on  http://localhost:27017 on Wed Feb 25 2015 14:15:54 GMT+0100 (CET)
+listening form API on  http://localhost:27017 on Wed Feb 25 2015 14:16:51 GMT+0100 (CET)
+listening form API on  http://localhost:27017 on Wed Feb 25 2015 14:18:52 GMT+0100 (CET)
+listening form API on  http://localhost:27017 on Wed Feb 25 2015 14:20:04 GMT+0100 (CET)
+listening form API on  http://localhost:27017 on Wed Feb 25 2015 14:20:26 GMT+0100 (CET)
+listening form API on  http://localhost:27017 on Wed Feb 25 2015 14:21:02 GMT+0100 (CET)
+listening form API on  http://localhost:27017 on Wed Feb 25 2015 14:25:05 GMT+0100 (CET)
+::1 - - [25/Feb/2015:13:25:14 +0000] "GET / HTTP/1.1" 200 - "-" "curl/7.40.0"
+::1 - - [25/Feb/2015:13:25:39 +0000] "POST / HTTP/1.1" 200 - "-" "curl/7.40.0"
+::1 - - [25/Feb/2015:13:26:05 +0000] "POST / HTTP/1.1" 200 - "-" "curl/7.40.0"
+::1 - - [25/Feb/2015:13:26:10 +0000] "GET / HTTP/1.1" 200 - "-" "curl/7.40.0"
+::1 - - [25/Feb/2015:13:26:34 +0000] "GET /1 HTTP/1.1" 200 - "-" "curl/7.40.0"
+::1 - - [25/Feb/2015:13:26:36 +0000] "GET /0 HTTP/1.1" 200 - "-" "curl/7.40.0"
+::1 - - [25/Feb/2015:13:26:43 +0000] "GET /0-1 HTTP/1.1" 200 - "-" "curl/7.40.0"
+::1 - - [25/Feb/2015:13:26:47 +0000] "GET /0-0 HTTP/1.1" 200 - "-" "curl/7.40.0"
+::1 - - [25/Feb/2015:13:26:52 +0000] "GET /test HTTP/1.1" 200 - "-" "curl/7.40.0"
+::1 - - [25/Feb/2015:13:27:19 +0000] "POST / HTTP/1.1" 200 - "-" "curl/7.40.0"
+::1 - - [25/Feb/2015:13:27:40 +0000] "POST / HTTP/1.1" 200 - "-" "curl/7.40.0"
+::1 - - [25/Feb/2015:13:27:47 +0000] "GET / HTTP/1.1" 200 - "-" "curl/7.40.0"
+::1 - - [25/Feb/2015:13:28:48 +0000] "PUT /3 HTTP/1.1" 200 - "-" "curl/7.40.0"
+::1 - - [25/Feb/2015:13:28:52 +0000] "GET / HTTP/1.1" 200 - "-" "curl/7.40.0"
+::1 - - [25/Feb/2015:13:29:13 +0000] "GET / HTTP/1.1" 200 - "-" "curl/7.40.0"
+listening form API on  http://localhost:27017 on Wed Feb 25 2015 14:29:16 GMT+0100 (CET)
+::1 - - [25/Feb/2015:13:29:30 +0000] "GET / HTTP/1.1" 200 - "-" "curl/7.40.0"
+::1 - - [25/Feb/2015:13:29:37 +0000] "GET /0 HTTP/1.1" 200 - "-" "curl/7.40.0"
+::1 - - [25/Feb/2015:13:29:39 +0000] "GET /2 HTTP/1.1" 200 - "-" "curl/7.40.0"

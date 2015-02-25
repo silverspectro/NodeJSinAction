@@ -37,13 +37,13 @@ if(!name) {
 }
 
 var logfile = path.join(__dirname, "/log/log" + getDate());
-var file = path.join(__dirname, "api/" + name);
+var file = path.join(__dirname, name +"/"+ name);
 
 function createDir(name) {
-  if(fs.existsSync(__dirname + name)){
-    console.log(name + "exists");
+  if(fs.existsSync(__dirname + "/" + name)){
+    console.log(name + " exists");
   } else {
-    fs.mkdirSync(__dirname + name);
+    fs.mkdirSync(__dirname + "/" +name);
   }
 }
 
@@ -110,7 +110,7 @@ server.use("/",function(req, res){
     function listitems(file) {
       var rangeString = /\d-\d/;
       var singleString = /^\d+$/;
-      
+
       LoadorInitialize(file, function(items){
         res.statusCode = 200;
         if(singleString.test(itemIndex)) {
