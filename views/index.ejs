@@ -1,0 +1,14 @@
+<%- include("partials/head") %>
+
+  <body>
+
+  <h1>My site</h1>
+
+<article>
+  <% settings.items.forEach(function(item, index) { %>
+    <h2><a href="<%= index %>"><%= item.title %> </a>- <small><%= item.created %></small></h2>
+    <%- settings.marked(item.text) %>
+  <% }) %>
+</article>
+
+  <%- include("partials/footer") %>

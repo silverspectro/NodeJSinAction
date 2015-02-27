@@ -1,6 +1,5 @@
 var fs = require("fs");
 var path = require("path");
-var url = require("url");
 var morgan = require("morgan");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
@@ -151,7 +150,6 @@ module.exports = function(name, port, ip) {
   };
 
   function additem(file, itemDescription, req ,res) {
-    console.log(req);
     if(!itemDescription)console.log("no item description");
     var item = {};
     if(Object.keys(qs.parse(itemDescription)).length > 1) {
@@ -164,6 +162,7 @@ module.exports = function(name, port, ip) {
       }
     }
     item.created = new Date();
+    item._index = items.length;
 
     var lowerItem = {};
     for(prop in item) {
@@ -231,6 +230,9 @@ module.exports = function(name, port, ip) {
   //middlewrare for all request
 router.use(function(req, res, next) {
   req.setEncoding("utf8");
+
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
   next();
 });

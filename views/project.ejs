@@ -1,0 +1,13 @@
+<%- include("partials/head") %>
+
+  <body>
+
+  <h1>My site</h1>
+
+  <article>
+    <h2><%= settings.items.title %><small> - <%= settings.items.created %></small></h2>
+    <div><%- settings.marked(settings.items.text) %></div>
+  </article>
+
+
+  <%- include("partials/footer") %>
