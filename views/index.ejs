@@ -6,9 +6,14 @@
 
 <article>
   <% settings.items.forEach(function(item, index) { %>
-    <h2><a href="<%= index %>"><%= item.title %> </a>- <small><%= item.created %></small></h2>
-    <%- settings.marked(item.text) %>
+    <h2 class="title"><a href="<%= index %>"><%= item.title %> </a>- <small><%= item.created %></small></h2><span class="delete" id="<%= index %>" >X</span>
+    <div class="text"><%- settings.marked(item.text) %></div>
   <% }) %>
 </article>
+<form>
+  <input id="title" type="text" placeholder="title"></input>
+  <textarea id="text" type="text" placeholder="text"></textarea>
+</form>
+<button id="add">Add</button>
 
   <%- include("partials/footer") %>

@@ -5,8 +5,9 @@
   <h1>My site</h1>
 
   <article>
-    <h2><%= settings.items.title %><small> - <%= settings.items.created %></small></h2>
-    <div><%- settings.marked(settings.items.text) %></div>
+    <input id="title" value="<%= settings.items.title %>"></input>
+    <textarea id="text"><%- settings.marked(settings.items.text) %></textarea>
+    <button class="edit" id="<%= settings.item_id %>">Edit</button>
   </article>
 
 

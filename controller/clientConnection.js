@@ -1,43 +1,13 @@
-var api = require("./api");
 var http = require("http");
-var fs = require("fs");
-var path = require("path");
-var url = require("url");
-var morgan = require("morgan");
 var qs = require("querystring");
-var favicon = require("serve-favicon");
-var marked = require("marked");
-var express = require("express");
+module.exports = marked = require("marked");
 
-api("project", 27017);
+module.exports = express = require("express");
+module.exports = app = express();
+module.exports = server = require("http").Server(app);
+module.exports = io = require("socket.io")(server);
 
-var items;
-
-var app = express();
-var server = require("http").Server(app);
-var io = require("socket.io")(server);
-
-function createDir(name) {
-  if(fs.existsSync(__dirname + "/" +name)){
-    console.log(name + " exists");
-  } else {
-    fs.mkdirSync(__dirname +"/"+name);
-  }
-}
-
-createDir("views");
-createDir("public");
-createDir("public/images");
-
-app.set("views", __dirname + "/views");
-app.set("view engine", "ejs");
-app.set("marked", marked);
-app.set("Title", "cirodecaro.net | Tech dev & graphism");
-app.use(favicon(__dirname + '/public/images/favicon.ico'));
-app.use(morgan("dev"));
-app.use(express.static(path.join(__dirname, "public")));
-
-function getRequest(host, port, path, callback) {
+module.exports = getRequest = function(host, port, path, callback) {
   var getReq = {
     host:host,
     port:port,
@@ -55,7 +25,7 @@ function getRequest(host, port, path, callback) {
   }).end();
 }
 
-function postRequest(host, port, path, data, callback) {
+module.exports = postRequest = function(host, port, path, data, callback) {
   data = qs.stringify(data);
 
   var postOptions = {
@@ -82,7 +52,7 @@ function postRequest(host, port, path, data, callback) {
   post_req.end();
 }
 
-function deleteRequest(host, port, path, callback) {
+module.exports = deleteRequest = function(host, port, path, callback) {
   var delReq = {
     host:host,
     port:port,
@@ -98,7 +68,34 @@ function deleteRequest(host, port, path, callback) {
       if(callback)callback(items);
     });
   }).end();
-}
+};
+
+module.exports = putRequest = function(host, port, path, data, callback) {
+  data = qs.stringify(data);
+
+  var putOptions = {
+    host:host,
+    port:port,
+    path:path,
+    method:"PUT",
+    headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Length': data.length
+      }
+  };
+
+  var put_req = http.request(putOptions, function(res){
+    res.setEncoding("utf8");
+    res.on("data", function(apidata){
+      items = apidata;
+      app.set("items", items);
+      if(callback)callback(items);
+    });
+  });
+
+  put_req.write(data);
+  put_req.end();
+};
 
 io.on('connection', function (socket) {
   socket.on('post', function(message){
@@ -116,30 +113,9 @@ io.on('connection', function (socket) {
       console.log(items);
     });
   });
-});
-
-app.use(function(req, res, next){
-  var chemin = url.parse(req.url).path;
-
-  //console.log(chemin.split("/").length - 1 === 1);
-  if(chemin.split("/").length - 1 === 1) {
-    getRequest("localhost", "27017", "/api/project" + chemin, function(){
-      next();
+  socket.on('edit', function(id, message){
+    putRequest("localhost", "27017", "/api/project/" + id, message, function(items){
+      console.log(items);
     });
-  }
-
-});
-
-app.route("/")
-  .get(function(req, res){
-    res.render("index");
   });
-app.route("/:id")
-  .get(function(req, res){
-    res.render("project");
-  });
-
-
-server.listen(3000, function() {
-  console.log("app Listening on localhost:3000");
 });
